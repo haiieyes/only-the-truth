@@ -20,3 +20,32 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+/* Latest Reviews */
+
+#lrSect {
+    background-color: white;
+    width: 100%;
+    height: 500px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#lrCon {
+    width: 100%;
+    height: 100%;
+}
+
+.firaRed {
+    font-family: 'Fira Code', monospace;
+    color: #ee394e;
+}
+
+#lrCardsCon {
+    border: 1px black solid;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: space-around;
+}
