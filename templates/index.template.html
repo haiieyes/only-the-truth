@@ -13,6 +13,7 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     
     <title>Hello, world!</title>
   </head>
@@ -26,60 +27,85 @@
     <!-- Latest Reviews -->
     <section id='lrSect'>
       <div class='container' id='lrCon'>
-        <h6 class='firaRed'>- 01 LATEST REVIEWS</h6>
+        <h6 class='firaRed mb-5'>- 01 LATEST REVIEWS</h6>
         <div id='lrCardsCon'>
           
-          <!-- Card 1 -->
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
+          <!-- Card Template -->
+          {% for each in results %}
+          <div class="card boxShadow" style="width: 18rem;">
+            <img class="card-img-top" src="{{each['albumArt']}}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">
-                Album 1
+                {{each['albumName']}}
               </h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the card's content.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Average Rating: 00%</li>
-              <li class="list-group-item">Written By: XXX</li>
-            </ul>
-          </div>
-          
-          <!-- Card 2 -->
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">
-                Album 2
-              </h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the card's content.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Average Rating: 00%</li>
-              <li class="list-group-item">By: XXX</li>
-            </ul>
-          </div>
-          
-          <!-- Card 3 -->
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">
-                Album 3
-              </h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the card's content.
+              <p class="card-text truncate">
+                {{each['review']}}
               </p>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">AVERAGE RATING: 00%</li>
-              <li class="list-group-item">BY: XXX</li>
+              <li class="list-group-item">BY: {{each['nick']}}</li>
             </ul>
           </div>
+          {%endfor%}
+          
+          <!-- Card 2 -->
+          <!--<div class="card" style="width: 18rem;">-->
+          <!--  <img class="card-img-top" src="..." alt="Card image cap">-->
+          <!--  <div class="card-body">-->
+          <!--    <h5 class="card-title">-->
+          <!--      Album 2-->
+          <!--    </h5>-->
+          <!--    <p class="card-text">-->
+          <!--      Some quick example text to build on the card title and make up the bulk of the card's content.-->
+          <!--    </p>-->
+          <!--  </div>-->
+          <!--  <ul class="list-group list-group-flush">-->
+          <!--    <li class="list-group-item">AVERAGE RATING: 00%</li>-->
+          <!--    <li class="list-group-item">BY: XXX</li>-->
+          <!--  </ul>-->
+          <!--</div>-->
+          
+          <!-- Card 3 -->
+          <!--<div class="card" style="width: 18rem;">-->
+          <!--  <img class="card-img-top" src="..." alt="Card image cap">-->
+          <!--  <div class="card-body">-->
+          <!--    <h5 class="card-title">-->
+          <!--      Album 3-->
+          <!--    </h5>-->
+          <!--    <p class="card-text">-->
+          <!--      Some quick example text to build on the card title and make up the bulk of the card's content.-->
+          <!--    </p>-->
+          <!--  </div>-->
+          <!--  <ul class="list-group list-group-flush">-->
+          <!--    <li class="list-group-item">AVERAGE RATING: 00%</li>-->
+          <!--    <li class="list-group-item">BY: XXX</li>-->
+          <!--  </ul>-->
+          <!--</div>-->
 
+        </div>
+      </div>
+    </section>
+    
+    <!-- Search For Albums -->
+    <section id='sfaSect'>
+      <div id='sfaConsole' class='container'>
+        <div id='sfaTitleCon'>
+          <div class='left'>
+            <h1 class='lobsterRed'>Search</h1>
+          </div>
+          <div class='right'>
+            <h1 class='lobsterRed'>For</h1>
+          </div>
+          <div class='left'>
+            <h1 class='lobsterRed'>Albums</h1>
+          </div>
+          
+        </div>
+        <div id='console' class='container'>
+          <input class="mb-2 heightForm form-control form-control-lg" type="text" placeholder="Album Name">
+          <input class="mb-2 heightForm form-control" type="text" placeholder="Artist Name">
+          <button type="button" class="mb-2 btn btn-outline-danger btn-block">Search</button>
         </div>
       </div>
     </section>

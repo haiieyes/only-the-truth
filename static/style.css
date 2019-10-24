@@ -2,18 +2,43 @@ body {
     background-color: #F1F1F1;
 }
 
+.firaRed {
+    font-family: 'Fira Code', monospace;
+    color: #ee394e;
+}
+
+.lobsterRed {
+    font-family: 'Lobster', cursive;
+    color: #ee394e;
+    text-shadow: 10px black;
+    font-size: 90px;
+    margin-bottom: -30px;
+}
+
+.truncate {
+  /*width: 150px;*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.boxShadow {
+    box-shadow: 5px 5px 5px grey;
+}
+
 /* Header */
 #head {
     width: 100%;
-    height: 300px;
+    height: 500px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 
 #logo {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     background-image: url('/static/images/ott_logo.png');
     background-size: cover;
     background-position: center;
@@ -26,26 +51,61 @@ body {
 #lrSect {
     background-color: white;
     width: 100%;
-    height: 500px;
+    height: 700px;
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
 #lrCon {
     width: 100%;
-    height: 100%;
-}
-
-.firaRed {
-    font-family: 'Fira Code', monospace;
-    color: #ee394e;
+    height: 60%;
 }
 
 #lrCardsCon {
-    border: 1px black solid;
+    /*border: 1px black solid;*/
     width: 100%;
-    height: 100%;
+    height: 500px;
     
     display: flex;
     justify-content: space-around;
+}
+
+/* Search For Albums */
+#sfaSect {
+    background-color: white;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+#sfaConsole {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#sfaTitleCon {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: -30px;
+}
+
+#console {
+    flex: 3;
+    padding-left: 50px;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.heightForm {
+    height: 50px;
 }

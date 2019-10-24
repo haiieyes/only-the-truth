@@ -18,9 +18,9 @@ def home():
         
     cursor = connection.cursor(pymysql.cursors.DictCursor)
     
-    # sql = "SELECT * FROM Employee"
-    # cursor.execute(sql)
-    return render_template("index.template.html")
+    sql = "SELECT albums.*,albumReviews.* FROM albums, albumReviews WHERE albums.albumID = albumReviews.albumID limit 3"
+    cursor.execute(sql)
+    return render_template("index.template.html", results=cursor)
 
     
 # "magic code" -- boilerplate
