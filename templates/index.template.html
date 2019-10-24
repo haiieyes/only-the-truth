@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     
-    <title>Hello, world!</title>
+    <title>Only The Best</title>
   </head>
   <body>
     
@@ -35,9 +35,9 @@
           <div class="card boxShadow" style="width: 18rem;">
             <img class="card-img-top" src="{{each['albumArt']}}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">
+              <a class="card-title linkOut" href='/reviews/read/{{each['albumID']}}'>
                 {{each['albumName']}}
-              </h5>
+              </a>
               <p class="card-text truncate">
                 {{each['review']}}
               </p>
@@ -48,40 +48,6 @@
             </ul>
           </div>
           {%endfor%}
-          
-          <!-- Card 2 -->
-          <!--<div class="card" style="width: 18rem;">-->
-          <!--  <img class="card-img-top" src="..." alt="Card image cap">-->
-          <!--  <div class="card-body">-->
-          <!--    <h5 class="card-title">-->
-          <!--      Album 2-->
-          <!--    </h5>-->
-          <!--    <p class="card-text">-->
-          <!--      Some quick example text to build on the card title and make up the bulk of the card's content.-->
-          <!--    </p>-->
-          <!--  </div>-->
-          <!--  <ul class="list-group list-group-flush">-->
-          <!--    <li class="list-group-item">AVERAGE RATING: 00%</li>-->
-          <!--    <li class="list-group-item">BY: XXX</li>-->
-          <!--  </ul>-->
-          <!--</div>-->
-          
-          <!-- Card 3 -->
-          <!--<div class="card" style="width: 18rem;">-->
-          <!--  <img class="card-img-top" src="..." alt="Card image cap">-->
-          <!--  <div class="card-body">-->
-          <!--    <h5 class="card-title">-->
-          <!--      Album 3-->
-          <!--    </h5>-->
-          <!--    <p class="card-text">-->
-          <!--      Some quick example text to build on the card title and make up the bulk of the card's content.-->
-          <!--    </p>-->
-          <!--  </div>-->
-          <!--  <ul class="list-group list-group-flush">-->
-          <!--    <li class="list-group-item">AVERAGE RATING: 00%</li>-->
-          <!--    <li class="list-group-item">BY: XXX</li>-->
-          <!--  </ul>-->
-          <!--</div>-->
 
         </div>
       </div>

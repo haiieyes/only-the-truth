@@ -2,6 +2,15 @@ body {
     background-color: #F1F1F1;
 }
 
+.linkOut {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.linkOut:hover {
+    text-decoration: underline;
+}
+
 .firaRed {
     font-family: 'Fira Code', monospace;
     color: #ee394e;
