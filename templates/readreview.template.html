@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
     
-    <title>{{album['albumName']}} Reviews</title>
+    <title>{{album['albumName']}} By {{reviewCursor['nick']}}</title>
   </head>
   <body id='rr'>
     
@@ -31,6 +31,10 @@
     <section class='container' id='arSect'>
         <h6 class='fjallaBlack'>{{album['albumName']}}</h6>
         <p class='fjallaBlackSub'>By: {{reviewCursor['nick']}}</p>
+        <p class='articleFont'><i>
+          {{album['albumDescription']}}
+        </i>
+        </p>
         <img class='mt-4 mb-5' id='aaReviews' src="{{album['albumArt']}}"></img>
         <p class='articleFont'>
           {{reviewCursor['review']}}

@@ -2,13 +2,23 @@ body {
     background-color: #F1F1F1;
 }
 
+.ws {
+    width: 100%;
+    height: 100px;
+}
+
 .linkOut {
     cursor: pointer;
     font-weight: bold;
+    transition-property: color;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+    
 }
 
 .linkOut:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: #ee394e;
 }
 
 .firaRed {

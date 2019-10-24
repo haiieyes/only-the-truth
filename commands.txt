@@ -1,0 +1,45 @@
+
+<!-- Adding The Collage Dropout -->
+INSERT INTO tracks(albumID, artistID, trackOrder, trackName, trackRating)
+VALUES
+    (1, 1, 01, 'Intro', 4),
+    (1, 1, 02, 'We Dont Care', 3),
+    (1, 1, 03, 'Graduation Day', 4),
+    (1, 1, 04, 'All Falls Down (feat. Syleena Johnson)', 5),
+    (1, 1, 05, 'Ill Fly Away', 3),
+    (1, 1, 06, 'Spaceship (feat.GLC & Consequence)', 2),
+    (1, 1, 07, 'Jesus Walks', 5),
+    (1, 1, 08, 'Never Let Me Down (feat. Jay-Z & J. Ivy)', 3),
+    (1, 1, 09, 'Get Em High', 1),
+    (1, 1, 10, 'Workout Plan', 1),
+    (1, 1, 11, 'The New Workout Plan', 1),
+    (1, 1, 12, 'Slow Jamz', 1),
+    (1, 1, 13, 'Breathe In Breathe Out (feat. Ludacris)', 5),
+    (1, 1, 14, 'School Spirit Skit 1', 2),
+    (1, 1, 15, 'School Spirit', 4),
+    (1, 1, 16, 'School Spirit Skit 2', 2),
+    (1, 1, 17, 'Lil Jimmy Skit', 2),
+    (1, 1, 18, 'Two Words', 2),
+    (1, 1, 19, 'Through The Wire', 5),
+    (1, 1, 20, 'Family Business', 4),
+    (1, 1, 21, 'Last Call', 5);
+    
+<!-- Adding Watch The Throne -->
+INSERT INTO tracks(albumID, artistID, trackOrder, trackName, trackRating)
+VALUES
+    (2, 1, 01, 'No Church in The Wild (feat. Frank Ocean)', 5),
+    (2, 1, 02, 'Lift Off (feat. Beyonce)', 4),
+    (2, 1, 03, 'Niggas in Paris', 5),
+    (2, 1, 04, 'Otis (feat. Otis Redding)', 3),
+    (2, 1, 05, 'Gotta Have It', 3),
+    (2, 1, 06, 'New Day', 2),
+    (2, 1, 07, 'Prime Time', 1),
+    (2, 1, 08, 'Who Gon Stop Me', 4),
+    (2, 1, 09, 'Murder to Excellence', 2),
+    (2, 1, 10, 'Welcome to The Jungle', 2),
+    (2, 1, 11, 'Sweet Baby Jesus (feat. Frank Ocean)', 3),
+    (2, 1, 12, 'Love You So (feat. Mr Hudson)', 3),
+    (2, 1, 13, 'Illest MTHFKR Alive', 4),
+    (2, 1, 14, 'HAM (Bonus)', 3),
+    (2, 1, 15, 'That's My Bitch (Bonus)', 3),
+    (2, 1, 16, 'The Joy (Feat. Curtis Mayfield) (Bonus)', 3);
