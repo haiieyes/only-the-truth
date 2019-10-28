@@ -149,3 +149,18 @@ body {
     font-style: italic;
     font-size: .7em;
 }
+
+.plus {
+  background-color : #ee394e;
+  color: white;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 2em;
+}
+
+#mybutton {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+}
