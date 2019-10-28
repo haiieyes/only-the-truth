@@ -40,6 +40,22 @@ def readReview(albumID):
     
     return render_template('readreview.template.html', album=album, reviewCursor=reviewCursor)
     
+#View Tracks of an Album
+@app.route('/tracks/<albumID>')
+def viewTracks(albumID):
+    connection = get_connection()
+        
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
+    
+    sql = "SELECT * FROM albums WHERE albumID = {}".format(albumID)
+    cursor.execute(sql)
+    album = cursor.fetchone()
+    
+    sql = "SELECT * FROM tracks WHERE albumID = {}".format(albumID)
+    cursor.execute(sql)
+    
+    return render_template('viewtracks.template.html', album=album, tracks=cursor)
+    
 # "magic code" -- boilerplate
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

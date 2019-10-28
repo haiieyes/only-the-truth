@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     
-    <title>Only The Best</title>
+    <title>Only The Truth</title>
   </head>
   <body>
     
@@ -35,16 +35,15 @@
           <div class="card boxShadow" style="width: 18rem;">
             <img class="card-img-top" src="{{each['albumArt']}}" alt="Card image cap">
             <div class="card-body">
-              <a class="card-title linkOut">
+              <a class="card-title linkOutTitle" href='/tracks/{{each['albumID']}}'>
                 {{each['albumName']}}
               </a>
               <a href='/reviews/read/{{each['albumID']}}'>
-                <p class="card-text truncate">{{each['review']}}</p>
+                <p class="card-text truncate linkOut">{{each['review']}}</p>
               </a>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">AVERAGE RATING: 00%</li>
-              <li class="list-group-item">BY: {{each['nick']}}</li>
+              <li class="list-group-item cardNick firaRed">BY // {{each['nick']}}</li>
             </ul>
           </div>
           {%endfor%}

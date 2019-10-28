@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/rr.style.css" type="text/css" />
+    <link rel="stylesheet" href="/static/vt.style.css" type="text/css" />
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
@@ -18,33 +18,58 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
     
-    <title>{{album['albumName']}} By {{reviewCursor['nick']}}</title>
+    <title>{{album['albumName']}} Tracklist</title>
   </head>
   <body id='rr'>
-    
-    <div id="mybutton">
-      <button class="feedback">Feedback</button>
-    </div>
     
     <!-- Header -->
     <header class='container' id='head'>
       <div id='logo'></div>
     </header>
     
-    <!-- Album Review -->
+    <!-- Tracklist Section -->
     <section class='container' id='arSect'>
         <h6 class='fjallaBlack'>{{album['albumName']}}</h6>
-        <p class='fjallaBlackSub'>By: {{reviewCursor['nick']}}</p>
-        <p class='articleFont'><i>
-          {{album['albumDescription']}}
-        </i>
+        <p class='articleFont mb-5'>
+          <i>{{album['albumDescription']}}</i>
         </p>
-        <img class='mt-4 mb-5' id='aaReviews' src="{{album['albumArt']}}"></img>
-        <p class='articleFont'>
-          {{reviewCursor['review']}}
-        </p>
-        <p class='signature'>Only the truth,</p>
-        <p class='signature negativemt'>{{reviewCursor['nick']}}</p>
+        
+        <div class='d-flex'>
+          <!-- Album Art -->
+          <div style='flex: 2'>
+            <img class='mt-4 mb-5' id='aaReviews' src="{{album['albumArt']}}"></img>
+          </div>
+          
+          <!-- Tracklist -->
+          <div style='flex: 3'>
+            <table class='table'>
+              <thead>
+                  <th>
+                    Track Order
+                  </th>
+                  <th>
+                    Track Name
+                  </th>
+                  <th>
+                    Track Rating
+                  </th>
+              </thead>
+              {%for each in tracks%}
+              <tr>
+                <td>
+                  {{each['trackOrder'] | string}}
+                </td>
+                <td>
+                  {{each['trackName']}}
+                </td>
+                <td>
+                  {{each['trackRating'] | string}}
+                </td>
+              </tr>
+              {%endfor%}
+            </table>
+          </div>
+        </div>
         
     </section>
     
