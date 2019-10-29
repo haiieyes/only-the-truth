@@ -22,10 +22,6 @@
   </head>
   <body id='rr'>
     
-    <div id="mybutton">
-      <button class="feedback">Feedback</button>
-    </div>
-    
     <!-- Header -->
     <header class='container' id='head'>
       <div id='logo'></div>
@@ -34,17 +30,21 @@
     <!-- Album Review -->
     <section class='container' id='arSect'>
         <h6 class='fjallaBlack'>{{album['albumName']}}</h6>
-        <p class='fjallaBlackSub'>By: {{reviewCursor['nick']}}</p>
         <p class='articleFont'><i>
-          {{album['albumDescription']}}
+          {{ album['albumDescription'] }}
         </i>
         </p>
-        <img class='mt-4 mb-5' id='aaReviews' src="{{album['albumArt']}}"></img>
+        <img class='mt-4 mb-5' id='aaReviews' src="{{ album['albumArt'] }}"></img>
+        
+        {%for each in reviewCursor%}
+        <p class='fjallaBlackSub'>By: {{ each['nick'] }}</p>
         <p class='articleFont'>
-          {{reviewCursor['review']}}
+          {{each['review']}}
         </p>
         <p class='signature'>Only the truth,</p>
-        <p class='signature negativemt'>{{reviewCursor['nick']}}</p>
+        <p class='signature negativemt'>{{each['nick']}}</p>
+        <div class='ws'></div>
+        {%endfor%}
         
     </section>
     

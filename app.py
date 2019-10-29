@@ -19,7 +19,7 @@ def home():
         
     cursor = connection.cursor(pymysql.cursors.DictCursor)
     
-    sql = "SELECT albums.*,albumReviews.* FROM albums, albumReviews WHERE albums.albumID = albumReviews.albumID limit 3"
+    sql = "SELECT LAST albums.*,albumReviews.* FROM albums, albumReviews WHERE albums.albumID = albumReviews.albumID limit 3"
     cursor.execute(sql)
     return render_template("index.template.html", results=cursor)
 
@@ -32,7 +32,7 @@ def readReview(albumID):
     
     sql = "SELECT * FROM albumReviews WHERE albumID = {}".format(albumID)
     cursor.execute(sql)
-    reviewCursor = cursor.fetchone()
+    reviewCursor = cursor.fetchall()
     
     sql = "SELECT * FROM albums WHERE albumID = {}".format(albumID)
     cursor.execute(sql)
@@ -56,6 +56,37 @@ def viewTracks(albumID):
     
     return render_template('viewtracks.template.html', album=album, tracks=cursor)
     
+#Add A Review
+@app.route('/reviews/add')
+def addReview():
+    connection = get_connection()
+        
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
+    
+    sql = "SELECT * FROM albums"
+    cursor.execute(sql)
+    
+    return render_template("addreview.template.html", albums=cursor)
+    
+@app.route('/reviews/add', methods=['POST'])
+def processAddReview():
+    albumID = request.form['albumID']
+    nick = request.form['nick']
+    review = request.form['review']
+    
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    sql = """
+     INSERT INTO albumReviews (albumID, nick, review)
+     VALUES ({}, "{}", "{}")
+    """.format(albumID, nick, review)
+    
+    cursor.execute(sql)
+    connection.commit()
+    
+    return redirect("/")
+
 # "magic code" -- boilerplate
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

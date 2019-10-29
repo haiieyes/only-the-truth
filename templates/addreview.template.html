@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/rr.style.css" type="text/css" />
+    <link rel="stylesheet" href="/static/ar.style.css" type="text/css" />
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
@@ -18,37 +18,33 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
     
-    <title>{{album['albumName']}} By {{reviewCursor['nick']}}</title>
+    <title>Add A Review</title>
   </head>
-  <body id='rr'>
+  <body>
     
-    <div id="mybutton">
-      <button class="feedback">Feedback</button>
-    </div>
-    
-    <!-- Header -->
-    <header class='container' id='head'>
-      <div id='logo'></div>
-    </header>
-    
-    <!-- Album Review -->
+    <!-- Album Add -->
     <section class='container' id='arSect'>
-        <h6 class='fjallaBlack'>{{album['albumName']}}</h6>
-        <p class='fjallaBlackSub'>By: {{reviewCursor['nick']}}</p>
-        <p class='articleFont'><i>
-          {{album['albumDescription']}}
-        </i>
-        </p>
-        <img class='mt-4 mb-5' id='aaReviews' src="{{album['albumArt']}}"></img>
-        <p class='articleFont'>
-          {{reviewCursor['review']}}
-        </p>
-        <p class='signature'>Only the truth,</p>
-        <p class='signature negativemt'>{{reviewCursor['nick']}}</p>
-        
+        <div class='ws2'></div>
+        <div id='formCon'>
+          <form method='POST'>
+            
+            <!-- Select The Album -->
+            <select class="form-control mb-2" name='albumID'>
+              {%for each in albums %}
+              <option value='{{ each['albumID'] }}' >{{ each['albumName'] }}</option>
+              {%endfor%}
+            </select>
+            
+            <!-- Add your Name -->
+            <input class="form-control fontSizeUp mb-2" name="nick" placeholder="What Is Your Name?">
+            
+            <!-- Add your Review -->
+            <textarea class="form-control mb-2" name="review" rows="3" placeholder="What Do You Have To Say?"></textarea>
+            
+            <input class="btn btn-outline-light btn-lg btn-block" type='submit' value='Done'/>
+          </form>
+        </div>
     </section>
-    
-    <div class='ws'></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

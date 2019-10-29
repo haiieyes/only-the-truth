@@ -164,3 +164,7 @@ body {
   bottom: 40px;
   right: 40px;
 }
+
+.plus:hover {
+    cursor: pointer;
+}

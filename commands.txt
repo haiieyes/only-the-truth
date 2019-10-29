@@ -67,3 +67,6 @@ VALUES
     (3, 1, 18, 'Facts (Charlie Heat Version)', 2),
     (3, 1, 19, 'Fade', 3),
     (3, 1, 20, 'Saint Pablo', 2);
+    
+<!-- Delete Items -->
+DELETE FROM albumReviews WHERE nick = "";
