@@ -1,0 +1,134 @@
+body {
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ws {
+    width: 100%;
+    height: 100px;
+    border: 1px blue solid;
+}
+
+.ws2 {
+    width: 100px;
+    height: 100%;
+    flex: 2;
+}
+
+.negativemt {
+    margin-top: -30px;
+}
+
+.linkOut {
+    cursor: pointer;
+    color: #ee394e;
+    text-decoration: underline;
+}
+
+.linkOut:hover {
+    text-decoration: underline;
+}
+
+.firaRed {
+    font-family: 'Fira Code', monospace;
+    color: #ee394e;
+}
+
+.lobsterRed {
+    font-family: 'Lobster', cursive;
+    color: #ee394e;
+    text-shadow: 10px black;
+    font-size: 90px;
+}
+
+.lobsterGrey {
+    font-family: 'Lobster', cursive;
+    color: #CCCCCC;
+    text-shadow: 10px black;
+    font-size: 80px;
+}
+
+.fjallaBlack {
+    font-family: 'Fjalla One', sans-serif;
+    color: black;
+    text-shadow: 10px black;
+    font-size: 5em;
+    font-weight: bold;
+}
+
+.fjallaBlackSub {
+    font-family: 'Fjalla One', sans-serif;
+    color: #ee394e;
+    font-size: 2em;
+}
+
+.articleFont {
+    font-family: 'PT Serif', serif;
+    color: black;
+    font-size: 1.5em;
+}
+
+.signature {
+    font-family: 'Caveat', cursive;
+    color: #ee394e;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.truncate {
+  /*width: 150px;*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.boxShadow {
+    box-shadow: 5px 5px 5px grey;
+}
+
+/* Header */
+#head {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#logo {
+    width: 200px;
+    height: 200px;
+    background-image: url('/static/images/ott_logo.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: 20px;
+}
+
+/* Content */
+#arSect {
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+#formCon {
+    height: 100%;
+    flex: 3;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fontSizeUp {
+    font-size: 3em;
+}
+
+.fontSizeUp2 {
+    font-size: 2em;
+}

@@ -119,6 +119,32 @@ def processAddAlbum():
     connection.commit()
     
     return redirect("/reviews/add")
+    
+#Add An Artist
+@app.route('/artists/add')
+def addArtist():
+    connection = get_connection()
+        
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
+    
+    return render_template("addartist.template.html")
+    
+@app.route('/artists/add', methods=['POST'])
+def processAddArtist():
+    artistName = request.form['artistName']
+    
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    sql = """
+     INSERT INTO albumReviews (artistName)
+     VALUES ("{}")
+    """.format(artistName)
+    
+    cursor.execute(sql)
+    connection.commit()
+    
+    return redirect("/albums/add")
 
 # "magic code" -- boilerplate
 if __name__ == '__main__':

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/aa.style.css" type="text/css" />
+    <link rel="stylesheet" href="/static/aart.style.css" type="text/css" />
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
@@ -18,43 +18,25 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
     
-    <title>Add An Album</title>
+    <title>Add An Artist</title>
   </head>
   <body>
     
-    <!-- Album Add -->
+    <!-- Artist Add -->
     <section class='container' id='arSect'>
         <div class='ws2'></div>
         <div id='formCon'>
           <div>
-            <h2 class='lobsterGrey'>Add An Album</h2>
+            <h2 class='lobsterGrey'>Add An Artist</h2>
           </div>
           
           <form method='POST'>
             
-            <!-- Select The Artist -->
-            <select class="form-control mb-2" name='albumID'>
-              {%for each in artist %}
-              <option value='{{ each['artistID'] }}' >{{ each['artistName'] }}</option>
-              {%endfor%}
-            </select>
+            <!-- Enter Artist Name -->
+            <input class="form-control fontSizeUp mb-2" name="albumName" placeholder="Name of Artist">
             
-            <!-- Enter Album Name -->
-            <input class="form-control fontSizeUp mb-2" name="albumName" placeholder="Name of Album">
+            <input class="btn btn-outline-secondary btn-lg btn-block mb-3" type='submit' value='Add Artist'/>
             
-            <!-- Enter Album Name -->
-            <input class="form-control fontSizeUp2 mb-2" name="albumGenre" placeholder="What Is The Genre?">
-            
-            <!-- Add Album Description -->
-            <textarea class="form-control mb-2" name="review" rows="3" placeholder="Description of Album"></textarea>
-            
-            <!-- Enter Album Art -->
-            <input class="form-control fontSizeUp2 mb-2" name="albumArt" placeholder="Image Link Of Album Art">
-            
-            <input class="btn btn-outline-secondary btn-lg btn-block mb-3" type='submit' value='Add Tracks'/>
-            
-            <!-- Go To Add an Artist -->
-            <p class='linkOut'>Don't See Your Artist?</p>
           </form>
         </div>
     </section>
