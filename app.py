@@ -19,7 +19,7 @@ def home():
         
     cursor = connection.cursor(pymysql.cursors.DictCursor)
     
-    sql = "SELECT LAST albums.*,albumReviews.* FROM albums, albumReviews WHERE albums.albumID = albumReviews.albumID limit 3"
+    sql = "SELECT albums.*,albumReviews.* FROM albums, albumReviews WHERE albums.albumID = albumReviews.albumID limit 3"
     cursor.execute(sql)
     return render_template("index.template.html", results=cursor)
 
@@ -86,6 +86,39 @@ def processAddReview():
     connection.commit()
     
     return redirect("/")
+
+#Add An Album
+@app.route('/albums/add')
+def addAlbum():
+    connection = get_connection()
+        
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
+    
+    sql = "SELECT * FROM artists"
+    cursor.execute(sql)
+    
+    return render_template("addalbum.template.html", artist=cursor)
+    
+@app.route('/albums/add', methods=['POST'])
+def processAddAlbum():
+    artistID = request.form['artistID']
+    albumName = request.form['albumName']
+    albumGenre = request.form['albumGenre']
+    albumDescription = request.form['albumDescription']
+    albumArt = request.form['albumArt']
+    
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    sql = """
+     INSERT INTO albumReviews (artistID, albumName, albumGenre, albumDescription, albumArt)
+     VALUES ({}, "{}", "{}", "{}", "{}")
+    """.format(artistID, albumName, albumGenre, albumDescription, albumArt)
+    
+    cursor.execute(sql)
+    connection.commit()
+    
+    return redirect("/reviews/add")
 
 # "magic code" -- boilerplate
 if __name__ == '__main__':

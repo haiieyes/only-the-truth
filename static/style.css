@@ -47,10 +47,11 @@ body {
 }
 
 .truncate {
-  /*width: 150px;*/
-  white-space: nowrap;
+  width: 100%;
+  height: 130px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-word;
+  /*text-overflow: ellipsis;*/
 }
 
 .boxShadow {
@@ -96,7 +97,7 @@ body {
 #lrCardsCon {
     /*border: 1px black solid;*/
     width: 80%;
-    height: 500px;
+    height: 600px;
     
     display: flex;
     justify-content: space-around;
