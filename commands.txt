@@ -70,3 +70,15 @@ VALUES
     
 <!-- Delete Items -->
 DELETE FROM artists WHERE artistID = 2;
+
+sudo mysqldump -uroot albumReviews > database.sql
+
+us-cdbr-iron-east-05.cleardb.net
+
+ba2e48afb29834
+
+1f73342042a0a37
+
+heroku_8842c5ce3ae1d52
+
+mysql --host=us-cdbr-iron-east-05.cleardb.net --user=ba2e48afb29834 -p --reconnect heroku_8842c5ce3ae1d52 < database.sql

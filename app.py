@@ -1,16 +1,30 @@
-from app import app
 from flask import Flask, render_template, request, redirect, url_for
 import os
 import pymysql
+import urllib.parse
+from urllib.parse import urlparse
+
+urllib.parse.uses_netloc.append('mysql')
+
 
 app = Flask(__name__)
 
 def get_connection():
-    connection = pymysql.connect(host='localhost',
-        user="admin",
-        password="password",
-        database="albumReviews"
+    url = urlparse(os.environ['CLEARDB_DATABASE_URL'])
+    name = url.path[1:]
+    user = url.username
+    password= url.password
+    host = url.hostname
+    port= url.port
+
+    connection = pymysql.connect(
+        host=host,
+        user=user,
+        password=password,
+        port=port,
+        database=name
     )
+
     return connection
 
 #Landing Site
@@ -113,10 +127,12 @@ def processAddAlbum():
 
     sql = """
      INSERT INTO albums (artistID, albumName, albumGenre, albumDescription, albumArt)
-     VALUES ({}, "{}", "{}", "{}", "{}")
-    """.format(artistID, albumName, albumGenre, albumDescription, albumArt)
+     VALUES (%s, %s, %s, %s, %s)
+    """
     
-    cursor.execute(sql)
+    sql_insert = artistID, albumName, albumGenre, albumDescription, albumArt
+    
+    cursor.execute(sql, sql_insert)
     connection.commit()
     
     return redirect("/reviews/add")
@@ -170,11 +186,13 @@ def processEditAlbum(reviewID):
     cursor = connection.cursor()
     
     sql = """
-    UPDATE albumReviews SET nick = "{}", albumID = {}, review = "{}"
-    WHERE reviewID = {}
-    """.format(nick, albumID, review, reviewID)
+    UPDATE albumReviews SET nick = %s, albumID = %s, review = %s
+    WHERE reviewID = %s
+    """
     
-    cursor.execute(sql)
+    sql_insert = nick, albumID, review, reviewID
+    
+    cursor.execute(sql, sql_insert)
     connection.commit()
     connection.close()
     return redirect("/reviews/read/{}".format(albumID))
@@ -193,11 +211,9 @@ def processDeleteAlbum(reviewID):
 #Search
 @app.route('/', methods=['POST'])
 def process_search():
-    # try to retrieve out what the person has entered into the field
     artist = request.form['artistName']
     album = request.form['albumName']
     
-    # create connection
     connection = get_connection()
         
     cursor = connection.cursor(pymysql.cursors.DictCursor)
@@ -211,9 +227,6 @@ def process_search():
 
     cursor.execute(sql)
     
-    # MAKE SURE TO COMMENT OUT THE TEST CODE
-    # for each_result in cursor:
-    #     print(each_result)
     return render_template("search.template.html", album=cursor)
 
 # "magic code" -- boilerplate
