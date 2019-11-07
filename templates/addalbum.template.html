@@ -33,7 +33,7 @@
           <form method='POST'>
             
             <!-- Select The Artist -->
-            <select class="form-control mb-2" name='albumID'>
+            <select class="form-control mb-2" name='artistID'>
               {%for each in artist %}
               <option value='{{ each['artistID'] }}' >{{ each['artistName'] }}</option>
               {%endfor%}
@@ -46,15 +46,15 @@
             <input class="form-control fontSizeUp2 mb-2" name="albumGenre" placeholder="What Is The Genre?">
             
             <!-- Add Album Description -->
-            <textarea class="form-control mb-2" name="review" rows="3" placeholder="Description of Album"></textarea>
+            <textarea class="form-control mb-2" name="albumDescription" rows="3" placeholder="Description of Album"></textarea>
             
             <!-- Enter Album Art -->
             <input class="form-control mb-2" name="albumArt" placeholder="Image Link Of Album Art">
             
-            <input class="btn btn-outline-secondary btn-lg btn-block mb-3" type='submit' value='Add Tracks'/>
+            <input class="btn btn-outline-secondary btn-lg btn-block mb-3" type='submit' value='Add Album'/>
             
             <!-- Go To Add an Artist -->
-            <p class='linkOut' href='/artists/add'>Don't See Your Artist?</p>
+            <a class='linkOut' href='/artists/add'>Don't See Your Artist?</a>
           </form>
         </div>
     </section>

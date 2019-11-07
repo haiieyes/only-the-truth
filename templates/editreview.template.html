@@ -34,16 +34,14 @@
             
             <!-- Select The Album -->
             <select class="form-control mb-2" name='albumID'>
-              {%for each in albums %}
-              <option value='{{ each['albumID'] }}' >{{ each['albumName'] }}</option>
-              {%endfor%}
+              <option value='{{ review['albumID'] }}' selected>{{ review['albumName'] }}</option>
             </select>
             
             <!-- Add your Name -->
-            <input class="form-control fontSizeUp mb-2" name="nick" placeholder="What Is Your Name?">
+            <input class="form-control fontSizeUp mb-2" name="nick" placeholder="What Is Your Name?" value="{{ review['nick'] }}">
             
             <!-- Add your Review -->
-            <textarea class="form-control mb-2" name="review" rows="3" placeholder="What Do You Have To Say?"></textarea>
+            <textarea class="form-control mb-2" name="review" rows="3" placeholder="What Do You Have To Say?">{{ review['review'] }}</textarea>
             
             <input class="btn btn-outline-light btn-lg btn-block mb-3" type='submit' value='Done'/>
             

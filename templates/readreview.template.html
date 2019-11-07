@@ -29,7 +29,7 @@
     
     <!-- Album Review -->
     <section class='container' id='arSect'>
-        <h6 class='fjallaBlack'>{{album['albumName']}}</h6>
+        <h6 class='fjallaBlack mb-5'>{{album['albumName']}}</h6>
         <p class='articleFont'><i>
           {{ album['albumDescription'] }}
         </i>
@@ -41,8 +41,10 @@
         <p class='articleFont'>
           {{each['review']}}
         </p>
-        <p class='signature'>Only the truth,</p>
-        <p class='signature negativemt'>{{each['nick']}}</p>
+        
+        <p class='signature'>Only the truth</p>
+        <!--<p class='signature negativemt'>{{each['nick']}}</p>-->
+        <a href='/reviews/edit/{{each['reviewID']}}'>Edit</a>
         <div class='ws'></div>
         {%endfor%}
         

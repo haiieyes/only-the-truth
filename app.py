@@ -19,7 +19,7 @@ def home():
         
     cursor = connection.cursor(pymysql.cursors.DictCursor)
     
-    sql = "SELECT albums.*,albumReviews.* FROM albums, albumReviews WHERE albums.albumID = albumReviews.albumID limit 3"
+    sql = "SELECT albums.*,albumReviews.* FROM albums, albumReviews WHERE albums.albumID = albumReviews.albumID ORDER BY reviewID DESC limit 3"
     cursor.execute(sql)
     return render_template("index.template.html", results=cursor)
 
@@ -111,7 +111,7 @@ def processAddAlbum():
     cursor = connection.cursor()
 
     sql = """
-     INSERT INTO albumReviews (artistID, albumName, albumGenre, albumDescription, albumArt)
+     INSERT INTO albums (artistID, albumName, albumGenre, albumDescription, albumArt)
      VALUES ({}, "{}", "{}", "{}", "{}")
     """.format(artistID, albumName, albumGenre, albumDescription, albumArt)
     
@@ -137,7 +137,7 @@ def processAddArtist():
     cursor = connection.cursor()
 
     sql = """
-     INSERT INTO albumReviews (artistName)
+     INSERT INTO artists (artistName)
      VALUES ("{}")
     """.format(artistName)
     
@@ -146,6 +146,38 @@ def processAddArtist():
     
     return redirect("/albums/add")
 
+#Edit A Review
+@app.route('/reviews/edit/<reviewID>')
+def showEditAlbumForm(reviewID):
+    connection = get_connection()
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
+    
+    sql = "SELECT albums.*,albumReviews.* FROM albums, albumReviews WHERE albums.albumID = albumReviews.albumID AND reviewID = {}".format(reviewID)
+    cursor.execute(sql)
+    
+    review = cursor.fetchone()
+    
+    return render_template('editreview.template.html', review=review)
+    
+@app.route('/reviews/edit/<reviewID>', methods=['POST'])
+def processEditAlbum(reviewID):
+    albumID = request.form['albumID']
+    nick = request.form['nick']
+    review = request.form['review']
+    
+    connection = get_connection()
+    cursor = connection.cursor()
+    
+    sql = """
+    UPDATE albumReviews SET nick = "{}", albumID = {}, review = "{}"
+    WHERE reviewID = {}
+    """.format(nick, albumID, review, reviewID)
+    
+    cursor.execute(sql)
+    connection.commit()
+    connection.close()
+    return redirect("/reviews/read/{}".format(albumID))
+   
 # "magic code" -- boilerplate
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
