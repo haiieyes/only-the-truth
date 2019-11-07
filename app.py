@@ -189,6 +189,32 @@ def processDeleteAlbum(reviewID):
     
     return redirect("/")
 
+#Search
+@app.route('/', methods=['POST'])
+def process_search():
+    # try to retrieve out what the person has entered into the field
+    artist = request.form['artistName']
+    album = request.form['albumName']
+    
+    # create connection
+    connection = get_connection()
+        
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
+    
+    sql = """
+        SELECT * FROM albums 
+        INNER JOIN artists ON albums.artistID = artists.artistId
+        WHERE albums.albumName LIKE '%{}%' AND artists.artistName LIKE '%{}%'
+        
+    """.format(album, artist)
+
+    cursor.execute(sql)
+    
+    # MAKE SURE TO COMMENT OUT THE TEST CODE
+    # for each_result in cursor:
+    #     print(each_result)
+    return render_template("search.template.html", album=cursor)
+
 # "magic code" -- boilerplate
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

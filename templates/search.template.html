@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
     
-    <title>{{album['albumName']}} Tracklist</title>
+    <title>Search</title>
   </head>
   <body id='rr'>
     
@@ -41,10 +41,10 @@
                     Artist Name
                   </th>
               </thead>
-              {%for each in albums%}
+              {%for each in album%}
               <tr>
                 <td>
-                  {{each['albumName'] | string}}
+                  <a href="/reviews/read/{{each['albumID']}}">{{each['albumName'] | string}}</a>
                 </td>
                 <td>
                   {{each['artistName']}}
