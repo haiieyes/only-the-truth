@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/aart.style.css" type="text/css" />
+    <link rel="stylesheet" href="/static/vt.style.css" type="text/css" />
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
@@ -18,28 +18,46 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
     
-    <title>Add An Artist</title>
+    <title>{{album['albumName']}} Tracklist</title>
   </head>
-  <body>
+  <body id='rr'>
     
-    <!-- Artist Add -->
+    <!-- Header -->
+    <header class='container' id='head'>
+      <div id='logo'></div>
+    </header>
+    
     <section class='container' id='arSect'>
-        <div class='ws2'></div>
-        <div id='formCon'>
-          <div>
-            <h2 class='lobsterGrey'>Add An Artist</h2>
-          </div>
+        <div class='d-flex'>
           
-          <form method='POST'>
-            
-            <!-- Enter Artist Name -->
-            <input class="form-control fontSizeUp mb-2" name="artistName" placeholder="Name of Artist">
-            
-            <input class="btn btn-outline-secondary btn-lg btn-block mb-3" type='submit' value='Add Artist'/>
-            
-          </form>
+          <!-- Tracklist -->
+          <div style='flex: 3'>
+            <table class='table'>
+              <thead>
+                  <th>
+                    Album Name
+                  </th>
+                  <th>
+                    Artist Name
+                  </th>
+              </thead>
+              {%for each in albums%}
+              <tr>
+                <td>
+                  {{each['albumName'] | string}}
+                </td>
+                <td>
+                  {{each['artistName']}}
+                </td>
+              </tr>
+              {%endfor%}
+            </table>
+          </div>
         </div>
+        
     </section>
+    
+    <div class='ws'></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

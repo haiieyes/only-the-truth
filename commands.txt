@@ -69,4 +69,4 @@ VALUES
     (3, 1, 20, 'Saint Pablo', 2);
     
 <!-- Delete Items -->
-DELETE FROM albumReviews WHERE nick = "";
+DELETE FROM artists WHERE artistID = 2;
