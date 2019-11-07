@@ -178,6 +178,17 @@ def processEditAlbum(reviewID):
     connection.close()
     return redirect("/reviews/read/{}".format(albumID))
    
+@app.route('/reviews/delete/<reviewID>')
+def processDeleteAlbum(reviewID):
+    connection = get_connection()
+    cursor = connection.cursor()
+    
+    sql = "DELETE FROM reviews WHERE reviewID = {}".format(reviewID)
+    
+    cursor.execute(sql)
+    
+    return redirect("/")
+
 # "magic code" -- boilerplate
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
