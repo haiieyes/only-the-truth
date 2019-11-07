@@ -1,1 +1,1 @@
-web gunicorn haiieyes-albumreviews:app
+web gunicorn app:app

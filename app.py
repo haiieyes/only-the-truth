@@ -6,7 +6,6 @@ from urllib.parse import urlparse
 
 urllib.parse.uses_netloc.append('mysql')
 
-
 app = Flask(__name__)
 
 def get_connection():
