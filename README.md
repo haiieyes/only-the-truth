@@ -4,7 +4,7 @@ Practical Python and Data-Centric Development - Code Institute
 Only The Truth is a public platform for anyone to review any album they want.
 The deployed website can be found [here](https://haiieyes-albumreviews.herokuapp.com/).
 
-![mockup](https://github.com/haiieyes/meetween/raw/master/images/mockup2.png)
+![mockup](https://github.com/haiieyes/only-the-truth/raw/master/mockup.png)
 
 ## UX
 Using the app should be easy for the user. They would see the latest three 
