@@ -15,12 +15,14 @@ def get_connection():
     password= url.password
     host = url.hostname
     port= url.port
+    print("---------")
+    print(port)
 
     connection = pymysql.connect(
         host=host,
         user=user,
         password=password,
-        port=port,
+        port=3306,
         database=name
     )
 
